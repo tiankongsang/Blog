@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://rqqh.cn/sitemap.xml
+Sitemap: https://tiankongsang.github.io/Blog/sitemap.xml
