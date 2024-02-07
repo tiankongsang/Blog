@@ -11,7 +11,7 @@
 # ordered by weight from lowest to highest.
 
 [[main]]
-  name = "Blog"
+  name = "Posts"
   pageRef = "posts"
   weight = 10
 
@@ -20,11 +20,21 @@
   pageRef = "topics"
   weight = 20
 
-#[[main]]
-#  pre = "github"
-#  name = "GitHub"
-#  url = "https://github.com/tiankongsang"
-#  weight = 30
+[[main]]
+  name = "Now"
+  pageRef = "now"
+  weight = 30
+
+[[main]]
+  name = "About"
+  pageRef = "about"
+  weight = 40
+
+[[main]]
+  pre = "github"
+  name = ""
+  url = "https://github.com/tiankongsang"
+  weight = 50
 
 #[[footer]]
 #  name = "Privacy"
