@@ -4,8 +4,8 @@ weight = 1
 title = "DIYcat"
 
 [params]
-  displayName = "ZH-CN"
-  isoCode = "zh-cn"
+  displayName = "CN"
+  isoCode = "cn"
   rtl = false
   dateFormat = "2 January 2006"
   logo = "img/blowfish_logo_transparent.png"
@@ -17,7 +17,7 @@ title = "DIYcat"
   name = "DIYcat"
   image = "img/blowfish_logo.png"
   headline = "I'm only human"
-  bio = "A little bit about you"
+#  bio = "A little bit about you"
   links = [
     { email = "mailto:tiankongsang@outlook.com" },
     { github = "https://github.com/tiankongsang" },

@@ -3,18 +3,18 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-    <loc>https://rqqh.cn/en/</loc>
+    <loc>https://blog.rqqh.cn/en/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
       rel="alternate"
       hreflang="zh-cn"
-      href="https://rqqh.cn/"
+      href="https://blog.rqqh.cn/"
     />
     <xhtml:link
       rel="alternate"
       hreflang="en"
-      href="https://rqqh.cn/en/"
+      href="https://blog.rqqh.cn/en/"
     />
   </url>
 </urlset>
