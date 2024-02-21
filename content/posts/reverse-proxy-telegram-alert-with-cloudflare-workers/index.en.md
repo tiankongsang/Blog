@@ -1,22 +1,22 @@
 ---
-title: '在 CloudFlare 上使用 Workers 部署 Telegram Bot 通知的反向代理'
+title: 'reverse proxy telegram alert with cloudflare workers'
 date: 2024-02-21T17:00:51+08:00
 draft: false
 showReadingTime: true
 ---
 
-## 准备内容
+## Preparation
 - Telegram Bot Token
-- Cloudflare 帐户
+- Cloudflare account
 
 ### Telegram Bot Token
-您可以从 [BotFather](https://t.me/BotFather) 获取 Token。
+You can obtain the token from [BotFather](https://t.me/BotFather)
 
 ![](Snipaste_2024-02-21_17-26-26.png)
 
 ### Cloudflare Workers
 
-首先创建一个 `Worker` ，然后输入名称和以下 `worker.js` 内容：
+Create a new worker and enter a name and the following `worker.js` content:
 
 ``` js
 const whitelist = ["/botxxxxxxxxxx:"];
@@ -52,6 +52,6 @@ async function handleRequest(request) {
 
 ```
 
-将 `"/botxxxxxxxxxx:"` 替换为您的 `Telegram Bot Token` 的前面数字部分，然后保存并部署。
+Replace `"/botxxxxxxxxxx:"` with the numerical part of your `Telegram Bot Token`, then save and deploy.
 
-您还可以自定义域名。如果出现 `403` 错误，您可以尝试开放 Cloudflare IP 白名单。
+You can also customize the domain. If you encounter a `403` error, you can try opening the Cloudflare IP whitelist.

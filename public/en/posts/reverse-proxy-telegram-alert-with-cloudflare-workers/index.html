@@ -1,21 +1,21 @@
 <!DOCTYPE html>
-<html lang="CN" dir="ltr" class="scroll-smooth" data-default-appearance="dark"
+<html lang="GB" dir="ltr" class="scroll-smooth" data-default-appearance="dark"
   data-auto-appearance="true"><head>
   <meta charset="utf-8" />
   
-  <meta http-equiv="content-language" content="zh-CN" />
+  <meta http-equiv="content-language" content="en" />
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   
-  <title>在 CloudFlare 上使用 Workers 部署 Telegram Bot 通知的反向代理 &middot; DIYcat</title>
-  <meta name="title" content="在 CloudFlare 上使用 Workers 部署 Telegram Bot 通知的反向代理 &middot; DIYcat" />
+  <title>reverse proxy telegram alert with cloudflare workers &middot; DIYcat</title>
+  <meta name="title" content="reverse proxy telegram alert with cloudflare workers &middot; DIYcat" />
   
   <meta name="description" content="My awesome website" />
   
   
   
-  <link rel="canonical" href="https://blog.rqqh.cn/posts/reverse-proxy-telegram-alert-with-cloudflare-workers/" />
+  <link rel="canonical" href="https://blog.rqqh.cn/en/posts/reverse-proxy-telegram-alert-with-cloudflare-workers/" />
   
   
   
@@ -65,16 +65,16 @@
   
   
   
-  <meta property="og:title" content="在 CloudFlare 上使用 Workers 部署 Telegram Bot 通知的反向代理" />
-<meta property="og:description" content="准备内容 #Telegram Bot Token Cloudflare 帐户 Telegram Bot Token #您可以从 BotFather 获取 Token。" />
+  <meta property="og:title" content="reverse proxy telegram alert with cloudflare workers" />
+<meta property="og:description" content="Preparation #Telegram Bot Token Cloudflare account Telegram Bot Token #You can obtain the token from BotFather" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.rqqh.cn/posts/reverse-proxy-telegram-alert-with-cloudflare-workers/" /><meta property="article:section" content="posts" />
+<meta property="og:url" content="https://blog.rqqh.cn/en/posts/reverse-proxy-telegram-alert-with-cloudflare-workers/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2024-02-21T17:00:51+08:00" />
 <meta property="article:modified_time" content="2024-02-21T17:00:51+08:00" />
 
 
-  <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="在 CloudFlare 上使用 Workers 部署 Telegram Bot 通知的反向代理"/>
-<meta name="twitter:description" content="准备内容 #Telegram Bot Token Cloudflare 帐户 Telegram Bot Token #您可以从 BotFather 获取 Token。"/>
+  <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="reverse proxy telegram alert with cloudflare workers"/>
+<meta name="twitter:description" content="Preparation #Telegram Bot Token Cloudflare account Telegram Bot Token #You can obtain the token from BotFather"/>
 
   
   <script type="application/ld+json">
@@ -82,12 +82,12 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "Posts",
-    "name": "在 CloudFlare 上使用 Workers 部署 Telegram Bot 通知的反向代理",
-    "headline": "在 CloudFlare 上使用 Workers 部署 Telegram Bot 通知的反向代理",
+    "name": "reverse proxy telegram alert with cloudflare workers",
+    "headline": "reverse proxy telegram alert with cloudflare workers",
     
-    "abstract": "准备内容 #\rTelegram Bot Token Cloudflare 帐户 Telegram Bot Token #\r您可以从 BotFather 获取 Token。",
-    "inLanguage": "zh-CN",
-    "url" : "https:\/\/blog.rqqh.cn\/posts\/reverse-proxy-telegram-alert-with-cloudflare-workers\/",
+    "abstract": "Preparation #\rTelegram Bot Token Cloudflare account Telegram Bot Token #\rYou can obtain the token from BotFather",
+    "inLanguage": "en",
+    "url" : "https:\/\/blog.rqqh.cn\/en\/posts\/reverse-proxy-telegram-alert-with-cloudflare-workers\/",
     "author" : {
       "@type": "Person",
       "name": "DIYcat"
@@ -101,7 +101,7 @@
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "113"
+    "wordCount": "146"
   }]
   </script>
 
@@ -157,7 +157,7 @@
   <div id="the-top" class="absolute flex self-center">
     <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
       href="#main-content"><span
-        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span></a>
+        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a>
   </div>
   
   
@@ -167,7 +167,7 @@
     
     
     <div>
-        <a href="/" class="flex">
+        <a href="/en/" class="flex">
             <span class="sr-only">DIYcat</span>
 
             <img src="/img/blowfish_logo_transparent.png" width="1000" height="1000"
@@ -180,7 +180,7 @@
         <nav class="flex space-x-3">
 
             
-            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">DIYcat</a>
+            <a href="/en/" class="text-base font-medium text-gray-500 hover:text-gray-900">DIYcat</a>
             
 
         </nav>
@@ -189,7 +189,7 @@
             
             
             
-  <a href="/posts/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  <a href="/en/posts/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
     
     <p class="text-base font-medium" title="Posts">
         Posts
@@ -234,7 +234,7 @@
             
 <div>
   <div class="cursor-pointer flex items-center nested-menu">
-    <a href="#" class="text-base font-medium text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="在 CloudFlare 上使用 Workers 部署 Telegram Bot 通知的反向代理">🇨🇳</a>
+    <a href="#" class="text-base font-medium text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="reverse proxy telegram alert with cloudflare workers">🇬🇧</a>
   </div>
   <div class="absolute menuhide">
     <div class="pt-2 p-5 mt-2 rounded-xl shadow-2xl">
@@ -317,7 +317,7 @@
             
 <div>
   <div class="cursor-pointer flex items-center nested-menu">
-    <a href="#" class="text-base font-medium text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="在 CloudFlare 上使用 Workers 部署 Telegram Bot 通知的反向代理">🇨🇳</a>
+    <a href="#" class="text-base font-medium text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="reverse proxy telegram alert with cloudflare workers">🇬🇧</a>
   </div>
   <div class="absolute menuhide">
     <div class="pt-2 p-5 mt-2 rounded-xl shadow-2xl">
@@ -426,7 +426,7 @@
 
                     
   <li class="mt-1">
-    <a href="/posts/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    <a href="/en/posts/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
         
         <p class="text-bg font-bg" title="Posts">
             Posts
@@ -502,7 +502,7 @@
   <header id="single_header" class="mt-5 max-w-prose">
     
     <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-      在 CloudFlare 上使用 Workers 部署 Telegram Bot 通知的反向代理
+      reverse proxy telegram alert with cloudflare workers
     </h1>
     <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
       
@@ -547,7 +547,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2024-02-21 17:00:51 &#43;0800 CST">21 February 2024</time><span class="px-2 text-primary-500">&middot;</span><span>113 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">1 分钟</span>
+  <time datetime="2024-02-21 17:00:51 &#43;0800 CST">21 February 2024</time><span class="px-2 text-primary-500">&middot;</span><span>146 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">1 min</span>
   
 
   
@@ -585,7 +585,7 @@
   <div class="place-self-center">
     
     <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
-      作者
+      Author
     </div>
     <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
       DIYcat
@@ -675,13 +675,13 @@
          <details open class="toc-right mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
   <summary
     class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
-    
+    Table of Contents
   </summary>
   <div
     class="min-w-[220px] py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#准备内容">准备内容</a>
+    <li><a href="#preparation">Preparation</a>
       <ul>
         <li><a href="#telegram-bot-token">Telegram Bot Token</a></li>
         <li><a href="#cloudflare-workers">Cloudflare Workers</a></li>
@@ -694,13 +694,13 @@
 <details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
   <summary
     class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
-    
+    Table of Contents
   </summary>
   <div
     class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#准备内容">准备内容</a>
+    <li><a href="#preparation">Preparation</a>
       <ul>
         <li><a href="#telegram-bot-token">Telegram Bot Token</a></li>
         <li><a href="#cloudflare-workers">Cloudflare Workers</a></li>
@@ -723,19 +723,19 @@
         <div class="article-content max-w-prose mb-20">
           
 
-<h2 class="relative group">准备内容 
-    <div id="%E5%87%86%E5%A4%87%E5%86%85%E5%AE%B9" class="anchor"></div>
+<h2 class="relative group">Preparation 
+    <div id="preparation" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E5%87%86%E5%A4%87%E5%86%85%E5%AE%B9" aria-label="锚点">#</a>
+            style="text-decoration-line: none !important;" href="#preparation" aria-label="Anchor">#</a>
     </span>        
     
 </h2>
 <ul>
 <li>Telegram Bot Token</li>
-<li>Cloudflare 帐户</li>
+<li>Cloudflare account</li>
 </ul>
 
 
@@ -745,12 +745,12 @@
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#telegram-bot-token" aria-label="锚点">#</a>
+            style="text-decoration-line: none !important;" href="#telegram-bot-token" aria-label="Anchor">#</a>
     </span>        
     
 </h3>
-<p>您可以从 <a href="https://t.me/BotFather"   target="_blank">
-    BotFather</a> 获取 Token。</p>
+<p>You can obtain the token from <a href="https://t.me/BotFather"   target="_blank">
+    BotFather</a></p>
 <p>
 
 
@@ -766,11 +766,11 @@
       <img
         class="my-0 rounded-md"
         srcset="
-        /posts/reverse-proxy-telegram-alert-with-cloudflare-workers/Snipaste_2024-02-21_17-26-26_hubfe7595e0aed0af06a2707e05b76ab53_226334_330x0_resize_box_3.png 330w,
-        /posts/reverse-proxy-telegram-alert-with-cloudflare-workers/Snipaste_2024-02-21_17-26-26_hubfe7595e0aed0af06a2707e05b76ab53_226334_660x0_resize_box_3.png 660w,
-        /posts/reverse-proxy-telegram-alert-with-cloudflare-workers/Snipaste_2024-02-21_17-26-26_hubfe7595e0aed0af06a2707e05b76ab53_226334_1024x0_resize_box_3.png 1024w,
-        /posts/reverse-proxy-telegram-alert-with-cloudflare-workers/Snipaste_2024-02-21_17-26-26_hubfe7595e0aed0af06a2707e05b76ab53_226334_1320x0_resize_box_3.png 2x"
-        src="/posts/reverse-proxy-telegram-alert-with-cloudflare-workers/Snipaste_2024-02-21_17-26-26_hubfe7595e0aed0af06a2707e05b76ab53_226334_660x0_resize_box_3.png"
+        /en/posts/reverse-proxy-telegram-alert-with-cloudflare-workers/Snipaste_2024-02-21_17-26-26_hubfe7595e0aed0af06a2707e05b76ab53_226334_330x0_resize_box_3.png 330w,
+        /en/posts/reverse-proxy-telegram-alert-with-cloudflare-workers/Snipaste_2024-02-21_17-26-26_hubfe7595e0aed0af06a2707e05b76ab53_226334_660x0_resize_box_3.png 660w,
+        /en/posts/reverse-proxy-telegram-alert-with-cloudflare-workers/Snipaste_2024-02-21_17-26-26_hubfe7595e0aed0af06a2707e05b76ab53_226334_1024x0_resize_box_3.png 1024w,
+        /en/posts/reverse-proxy-telegram-alert-with-cloudflare-workers/Snipaste_2024-02-21_17-26-26_hubfe7595e0aed0af06a2707e05b76ab53_226334_1320x0_resize_box_3.png 2x"
+        src="/en/posts/reverse-proxy-telegram-alert-with-cloudflare-workers/Snipaste_2024-02-21_17-26-26_hubfe7595e0aed0af06a2707e05b76ab53_226334_660x0_resize_box_3.png"
         alt=""
       />
       
@@ -787,11 +787,11 @@
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#cloudflare-workers" aria-label="锚点">#</a>
+            style="text-decoration-line: none !important;" href="#cloudflare-workers" aria-label="Anchor">#</a>
     </span>        
     
 </h3>
-<p>首先创建一个 <code>Worker</code> ，然后输入名称和以下 <code>worker.js</code> 内容：</p>
+<p>Create a new worker and enter a name and the following <code>worker.js</code> content:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">whitelist</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;/botxxxxxxxxxx:&#34;</span><span class="p">];</span>
 </span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">tg_host</span> <span class="o">=</span> <span class="s2">&#34;api.telegram.org&#34;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
@@ -822,8 +822,8 @@
 </span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="nx">req</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p>将 <code>&quot;/botxxxxxxxxxx:&quot;</code> 替换为您的 <code>Telegram Bot Token</code> 的前面数字部分，然后保存并部署。</p>
-<p>您还可以自定义域名。如果出现 <code>403</code> 错误，您可以尝试开放 Cloudflare IP 白名单。</p>
+</span></span></code></pre></div><p>Replace <code>&quot;/botxxxxxxxxxx:&quot;</code> with the numerical part of your <code>Telegram Bot Token</code>, then save and deploy.</p>
+<p>You can also customize the domain. If you encounter a <code>403</code> error, you can try opening the Cloudflare IP whitelist.</p>
 
         </div>
                 
@@ -836,8 +836,8 @@
      
     
      <script>
-        var oid = "views_posts\\reverse-proxy-telegram-alert-with-cloudflare-workers\\index.md"
-        var oid_likes = "likes_posts\\reverse-proxy-telegram-alert-with-cloudflare-workers\\index.md"
+        var oid = "views_posts\\reverse-proxy-telegram-alert-with-cloudflare-workers\\index.en.md"
+        var oid_likes = "likes_posts\\reverse-proxy-telegram-alert-with-cloudflare-workers\\index.en.md"
       </script>
       
       
@@ -858,7 +858,7 @@
       <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
   <a href="#the-top"
     class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
-    aria-label="" title="">
+    aria-label="Scroll to top" title="Scroll to top">
     &uarr;
   </a>
 </div>
@@ -883,9 +883,9 @@
     <p class="text-xs text-neutral-500 dark:text-neutral-400">
       
       
-      由 <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+      Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
         href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
-        href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a> 强力驱动
+        href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a>
     </p>
     
 
@@ -907,7 +907,7 @@
 </footer><div
   id="search-wrapper"
   class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
-  data-url="https://blog.rqqh.cn/"
+  data-url="https://blog.rqqh.cn/en/"
   style="z-index:500"
 >
   <div
@@ -930,14 +930,14 @@
           type="search"
           id="search-query"
           class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
-          placeholder=""
+          placeholder="Search"
           tabindex="0"
         />
       </form>
       <button
         id="close-search-button"
         class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
-        title=""
+        title="Close (Esc)"
       >
         
 

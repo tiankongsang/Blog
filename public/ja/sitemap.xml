@@ -3,7 +3,29 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
+    <loc>https://blog.rqqh.cn/ja/posts/reverse-proxy-telegram-alert-with-cloudflare-workers/</loc>
+    <lastmod>2024-02-21T17:00:51+08:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+      rel="alternate"
+      hreflang="zh-CN"
+      href="https://blog.rqqh.cn/posts/reverse-proxy-telegram-alert-with-cloudflare-workers/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://blog.rqqh.cn/en/posts/reverse-proxy-telegram-alert-with-cloudflare-workers/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="ja"
+      href="https://blog.rqqh.cn/ja/posts/reverse-proxy-telegram-alert-with-cloudflare-workers/"
+    />
+  </url>
+  <url>
     <loc>https://blog.rqqh.cn/ja/</loc>
+    <lastmod>2024-02-21T17:00:51+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -20,6 +42,27 @@
       rel="alternate"
       hreflang="ja"
       href="https://blog.rqqh.cn/ja/"
+    />
+  </url>
+  <url>
+    <loc>https://blog.rqqh.cn/ja/posts/</loc>
+    <lastmod>2024-02-21T17:00:51+08:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+      rel="alternate"
+      hreflang="zh-CN"
+      href="https://blog.rqqh.cn/posts/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://blog.rqqh.cn/en/posts/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="ja"
+      href="https://blog.rqqh.cn/ja/posts/"
     />
   </url>
 </urlset>

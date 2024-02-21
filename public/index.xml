@@ -9,12 +9,12 @@
     <copyright>© 2024 DIYcat</copyright>
     <lastBuildDate>Wed, 21 Feb 2024 17:00:51 +0800</lastBuildDate><atom:link href="https://blog.rqqh.cn/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>用CloudFlare的workers部署Telegram Bot通知反代</title>
+      <title>在 CloudFlare 上使用 Workers 部署 Telegram Bot 通知的反向代理</title>
       <link>https://blog.rqqh.cn/posts/reverse-proxy-telegram-alert-with-cloudflare-workers/</link>
       <pubDate>Wed, 21 Feb 2024 17:00:51 +0800</pubDate>
       
       <guid>https://blog.rqqh.cn/posts/reverse-proxy-telegram-alert-with-cloudflare-workers/</guid>
-      <description>准备内容： #Telegram Bot Token Cloudflare account Telegram Bot Token #可以从 https://t.</description>
+      <description>准备内容 #Telegram Bot Token Cloudflare 帐户 Telegram Bot Token #您可以从 BotFather 获取 Token。</description>
       
     </item>
     
