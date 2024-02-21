@@ -8,8 +8,13 @@
     <priority>0.5</priority>
     <xhtml:link
       rel="alternate"
-      hreflang="zh-cn"
+      hreflang="zh-CN"
       href="https://blog.rqqh.cn/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="ja"
+      href="https://blog.rqqh.cn/ja/"
     />
     <xhtml:link
       rel="alternate"

@@ -1,0 +1,26 @@
+languageCode = "ja"
+languageName = "Japanese"
+weight = 2
+title = "DIYcat"
+
+[params]
+  displayName = "日本語"
+  isoCode = "JP"
+  rtl = false
+  dateFormat = "2 January 2006"
+  logo = "img/blowfish_logo_transparent.png"
+  # secondaryLogo = "PATH"
+  description = "My awesome website"
+  # copyright = "Copy, _right?_ :thinking_face:"
+
+[author]
+  name = "DIYcat"
+  image = "img/blowfish_logo.png"
+  headline = "I'm only human"
+#  bio = "A little bit about you"
+  links = [
+    { email = "mailto:tiankongsang@outlook.com" },
+    { github = "https://github.com/tiankongsang" },
+    { steam = "https://steamcommunity.com/id/tiankongsang" },
+  ]
+

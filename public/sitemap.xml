@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
-
-  <url>
-    <loc>https://blog.rqqh.cn/</loc>
-    <lastmod>2022-06-13T20:55:37+01:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://blog.rqqh.cn/posts/</loc>
-    <lastmod>2022-06-13T20:55:37+01:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-</urlset>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <sitemap>
+    <loc>https://blog.rqqh.cn/zh-cn/sitemap.xml</loc>
+    
+      <lastmod>2024-02-21T17:00:51+08:00</lastmod>
+    
+  </sitemap>
+  
+  <sitemap>
+    <loc>https://blog.rqqh.cn/ja/sitemap.xml</loc>
+    
+  </sitemap>
+  
+  <sitemap>
+    <loc>https://blog.rqqh.cn/en/sitemap.xml</loc>
+    
+  </sitemap>
+  
+</sitemapindex>

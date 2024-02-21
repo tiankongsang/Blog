@@ -1,11 +1,11 @@
-languageCode = "zh-cn"
-languageName = "Simplified Chinese"
+languageCode = "zh-CN"
+languageName = "Simplified Chinese (China)"
 weight = 1
 title = "DIYcat"
 
 [params]
-  displayName = "CN"
-  isoCode = "cn"
+  displayName = "中文"
+  isoCode = "CN"
   rtl = false
   dateFormat = "2 January 2006"
   logo = "img/blowfish_logo_transparent.png"
