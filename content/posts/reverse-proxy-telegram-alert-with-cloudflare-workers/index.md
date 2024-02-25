@@ -10,7 +10,7 @@ showReadingTime: true
 - Cloudflare 帐户
 
 ### Telegram Bot Token
-您可以从 [BotFather](https://t.me/BotFather) 获取 Token。
+可以从 [BotFather](https://t.me/BotFather) 获取 Token。
 
 ![](Snipaste_2024-02-21_17-26-26.png)
 
@@ -52,6 +52,6 @@ async function handleRequest(request) {
 
 ```
 
-将 `"/botxxxxxxxxxx:"` 替换为您的 `Telegram Bot Token` 的前面数字部分，然后保存并部署。
+将 `"/botxxxxxxxxxx:"` 替换为 `Telegram Bot Token` 的前面数字部分，然后保存并部署。
 
-您还可以自定义域名。如果出现 `403` 错误，您可以尝试开放 Cloudflare IP 白名单。
+还可以自定义域名。如果出现 `403` 错误，可以尝试开放 Cloudflare IP 白名单。
