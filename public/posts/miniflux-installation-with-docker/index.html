@@ -1,21 +1,21 @@
 <!DOCTYPE html>
-<html lang="JP" dir="ltr" class="scroll-smooth" data-default-appearance="light"
+<html lang="CN" dir="ltr" class="scroll-smooth" data-default-appearance="light"
   data-auto-appearance="true"><head>
   <meta charset="utf-8" />
   
-  <meta http-equiv="content-language" content="ja" />
+  <meta http-equiv="content-language" content="zh-CN" />
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   
-  <title>CloudFlareを使用したWorkersによるTelegram Bot通知のリバースプロキシのデプロイ &middot; DIYcat</title>
-  <meta name="title" content="CloudFlareを使用したWorkersによるTelegram Bot通知のリバースプロキシのデプロイ &middot; DIYcat" />
+  <title>使用 Docker 安装 Miniflux &middot; DIYcat</title>
+  <meta name="title" content="使用 Docker 安装 Miniflux &middot; DIYcat" />
   
   <meta name="description" content="My awesome website" />
   
   
   
-  <link rel="canonical" href="https://blog.rqqh.cn/ja/posts/reverse-proxy-telegram-alert-with-cloudflare-workers/" />
+  <link rel="canonical" href="https://blog.rqqh.cn/posts/miniflux-installation-with-docker/" />
   
   
   
@@ -65,16 +65,16 @@
   
   
   
-  <meta property="og:title" content="CloudFlareを使用したWorkersによるTelegram Bot通知のリバースプロキシのデプロイ" />
-<meta property="og:description" content="準備するもの #Telegram Bot のトークン Cloudflare アカウント Telegram Bot のトークン #BotFather からトークンを取得できます。" />
+  <meta property="og:title" content="使用 Docker 安装 Miniflux" />
+<meta property="og:description" content="使用 Docker 安装 Miniflux #docker-compose." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.rqqh.cn/ja/posts/reverse-proxy-telegram-alert-with-cloudflare-workers/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2024-02-21T17:00:51+08:00" />
-<meta property="article:modified_time" content="2024-02-21T17:00:51+08:00" />
+<meta property="og:url" content="https://blog.rqqh.cn/posts/miniflux-installation-with-docker/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-03-14T16:53:09+08:00" />
+<meta property="article:modified_time" content="2024-03-14T16:53:09+08:00" />
 
 
-  <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="CloudFlareを使用したWorkersによるTelegram Bot通知のリバースプロキシのデプロイ"/>
-<meta name="twitter:description" content="準備するもの #Telegram Bot のトークン Cloudflare アカウント Telegram Bot のトークン #BotFather からトークンを取得できます。"/>
+  <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="使用 Docker 安装 Miniflux"/>
+<meta name="twitter:description" content="使用 Docker 安装 Miniflux #docker-compose."/>
 
   
   <script type="application/ld+json">
@@ -82,26 +82,26 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "Posts",
-    "name": "CloudFlareを使用したWorkersによるTelegram Bot通知のリバースプロキシのデプロイ",
-    "headline": "CloudFlareを使用したWorkersによるTelegram Bot通知のリバースプロキシのデプロイ",
+    "name": "使用 Docker 安装 Miniflux",
+    "headline": "使用 Docker 安装 Miniflux",
     
-    "abstract": "準備するもの #\rTelegram Bot のトークン Cloudflare アカウント Telegram Bot のトークン #\rBotFather からトークンを取得できます。",
-    "inLanguage": "ja",
-    "url" : "https:\/\/blog.rqqh.cn\/ja\/posts\/reverse-proxy-telegram-alert-with-cloudflare-workers\/",
+    "abstract": "使用 Docker 安装 Miniflux #\rdocker-compose.",
+    "inLanguage": "zh-CN",
+    "url" : "https:\/\/blog.rqqh.cn\/posts\/miniflux-installation-with-docker\/",
     "author" : {
       "@type": "Person",
       "name": "DIYcat"
     },
     "copyrightYear": "2024",
-    "dateCreated": "2024-02-21T17:00:51\u002b08:00",
-    "datePublished": "2024-02-21T17:00:51\u002b08:00",
+    "dateCreated": "2024-03-14T16:53:09\u002b08:00",
+    "datePublished": "2024-03-14T16:53:09\u002b08:00",
     
-    "dateModified": "2024-02-21T17:00:51\u002b08:00",
+    "dateModified": "2024-03-14T16:53:09\u002b08:00",
     
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "107"
+    "wordCount": "61"
   }]
   </script>
 
@@ -157,7 +157,7 @@
   <div id="the-top" class="absolute flex self-center">
     <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
       href="#main-content"><span
-        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>メインコンテンツへスキップ</a>
+        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span></a>
   </div>
   
   
@@ -171,7 +171,7 @@
     
     
     <div>
-        <a href="/ja/" class="flex">
+        <a href="/" class="flex">
             <span class="sr-only">DIYcat</span>
 
             <img src="/img/blowfish_logo_transparent.png" width="1000" height="1000"
@@ -184,7 +184,7 @@
         <nav class="flex space-x-3">
 
             
-            <a href="/ja/" class="text-base font-medium text-gray-500 hover:text-gray-900">DIYcat</a>
+            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">DIYcat</a>
             
 
         </nav>
@@ -193,7 +193,7 @@
             
             
             
-  <a href="/ja/posts/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  <a href="/posts/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
     
     <p class="text-base font-medium" title="Posts">
         Posts
@@ -238,26 +238,26 @@
             
 <div>
   <div class="cursor-pointer flex items-center nested-menu">
-    <a href="#" class="text-base font-medium text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="CloudFlareを使用したWorkersによるTelegram Bot通知のリバースプロキシのデプロイ">🇯🇵</a>
+    <a href="#" class="text-base font-medium text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="使用 Docker 安装 Miniflux">🇨🇳</a>
   </div>
   <div class="absolute menuhide">
     <div class="pt-2 p-5 mt-2 rounded-xl shadow-2xl">
       <div class="flex flex-col space-y-3">
         
-        <a href="/posts/reverse-proxy-telegram-alert-with-cloudflare-workers/" class="flex items-center">
-          <p class="text-sm font-sm text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="在 CloudFlare 上使用 Workers 部署 Telegram Bot 通知的反向代理">
+        <a href="/posts/miniflux-installation-with-docker/" class="flex items-center">
+          <p class="text-sm font-sm text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="使用 Docker 安装 Miniflux">
             中文
           </p>
         </a>
         
-        <a href="/ja/posts/reverse-proxy-telegram-alert-with-cloudflare-workers/" class="flex items-center">
-          <p class="text-sm font-sm text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="CloudFlareを使用したWorkersによるTelegram Bot通知のリバースプロキシのデプロイ">
+        <a href="/ja/posts/miniflux-installation-with-docker/" class="flex items-center">
+          <p class="text-sm font-sm text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="Dockerを使用してMinifluxをインストールする">
             日本語
           </p>
         </a>
         
-        <a href="/en/posts/reverse-proxy-telegram-alert-with-cloudflare-workers/" class="flex items-center">
-          <p class="text-sm font-sm text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="Reverse Proxy Telegram Alert With Cloudflare Workers">
+        <a href="/en/posts/miniflux-installation-with-docker/" class="flex items-center">
+          <p class="text-sm font-sm text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="Miniflux Installation With Docker">
             English
           </p>
         </a>
@@ -321,26 +321,26 @@
             
 <div>
   <div class="cursor-pointer flex items-center nested-menu">
-    <a href="#" class="text-base font-medium text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="CloudFlareを使用したWorkersによるTelegram Bot通知のリバースプロキシのデプロイ">🇯🇵</a>
+    <a href="#" class="text-base font-medium text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="使用 Docker 安装 Miniflux">🇨🇳</a>
   </div>
   <div class="absolute menuhide">
     <div class="pt-2 p-5 mt-2 rounded-xl shadow-2xl">
       <div class="flex flex-col space-y-3">
         
-        <a href="/posts/reverse-proxy-telegram-alert-with-cloudflare-workers/" class="flex items-center">
-          <p class="text-sm font-sm text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="在 CloudFlare 上使用 Workers 部署 Telegram Bot 通知的反向代理">
+        <a href="/posts/miniflux-installation-with-docker/" class="flex items-center">
+          <p class="text-sm font-sm text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="使用 Docker 安装 Miniflux">
             中文
           </p>
         </a>
         
-        <a href="/ja/posts/reverse-proxy-telegram-alert-with-cloudflare-workers/" class="flex items-center">
-          <p class="text-sm font-sm text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="CloudFlareを使用したWorkersによるTelegram Bot通知のリバースプロキシのデプロイ">
+        <a href="/ja/posts/miniflux-installation-with-docker/" class="flex items-center">
+          <p class="text-sm font-sm text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="Dockerを使用してMinifluxをインストールする">
             日本語
           </p>
         </a>
         
-        <a href="/en/posts/reverse-proxy-telegram-alert-with-cloudflare-workers/" class="flex items-center">
-          <p class="text-sm font-sm text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="Reverse Proxy Telegram Alert With Cloudflare Workers">
+        <a href="/en/posts/miniflux-installation-with-docker/" class="flex items-center">
+          <p class="text-sm font-sm text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="Miniflux Installation With Docker">
             English
           </p>
         </a>
@@ -430,7 +430,7 @@
 
                     
   <li class="mt-1">
-    <a href="/ja/posts/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    <a href="/posts/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
         
         <p class="text-bg font-bg" title="Posts">
             Posts
@@ -516,7 +516,7 @@
   <header id="single_header" class="mt-5 max-w-prose">
     
     <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-      CloudFlareを使用したWorkersによるTelegram Bot通知のリバースプロキシのデプロイ
+      使用 Docker 安装 Miniflux
     </h1>
     <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
       
@@ -561,7 +561,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2024-02-21 17:00:51 &#43;0800 CST">21 2月 2024</time><span class="px-2 text-primary-500">&middot;</span><span>107 文字</span><span class="px-2 text-primary-500">&middot;</span><span title="読むのに必要な時間">1 分</span>
+  <time datetime="2024-03-14 16:53:09 &#43;0800 CST">14 March 2024</time><span class="px-2 text-primary-500">&middot;</span><span>61 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">1 分钟</span>
   
 
   
@@ -599,7 +599,7 @@
   <div class="place-self-center">
     
     <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
-      著者
+      作者
     </div>
     <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
       DIYcat
@@ -689,18 +689,13 @@
          <details open class="toc-right mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
   <summary
     class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
-    目次
+    
   </summary>
   <div
     class="min-w-[220px] py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#準備するもの">準備するもの</a>
-      <ul>
-        <li><a href="#telegram-bot-のトークン">Telegram Bot のトークン</a></li>
-        <li><a href="#cloudflare-workers">Cloudflare Workers</a></li>
-      </ul>
-    </li>
+    <li><a href="#使用-docker-安装-miniflux">使用 Docker 安装 Miniflux</a></li>
   </ul>
 </nav>
   </div>
@@ -708,18 +703,13 @@
 <details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
   <summary
     class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
-    目次
+    
   </summary>
   <div
     class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#準備するもの">準備するもの</a>
-      <ul>
-        <li><a href="#telegram-bot-のトークン">Telegram Bot のトークン</a></li>
-        <li><a href="#cloudflare-workers">Cloudflare Workers</a></li>
-      </ul>
-    </li>
+    <li><a href="#使用-docker-安装-miniflux">使用 Docker 安装 Miniflux</a></li>
   </ul>
 </nav>
   </div>
@@ -737,107 +727,49 @@
         <div class="article-content max-w-prose mb-20">
           
 
-<h2 class="relative group">準備するもの 
-    <div id="%E6%BA%96%E5%82%99%E3%81%99%E3%82%8B%E3%82%82%E3%81%AE" class="anchor"></div>
+<h2 class="relative group">使用 Docker 安装 Miniflux 
+    <div id="%E4%BD%BF%E7%94%A8-docker-%E5%AE%89%E8%A3%85-miniflux" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E6%BA%96%E5%82%99%E3%81%99%E3%82%8B%E3%82%82%E3%81%AE" aria-label="アンカー">#</a>
+            style="text-decoration-line: none !important;" href="#%E4%BD%BF%E7%94%A8-docker-%E5%AE%89%E8%A3%85-miniflux" aria-label="锚点">#</a>
     </span>        
     
 </h2>
-<ul>
-<li>Telegram Bot のトークン</li>
-<li>Cloudflare アカウント</li>
-</ul>
-
-
-<h3 class="relative group">Telegram Bot のトークン 
-    <div id="telegram-bot-%E3%81%AE%E3%83%88%E3%83%BC%E3%82%AF%E3%83%B3" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#telegram-bot-%E3%81%AE%E3%83%88%E3%83%BC%E3%82%AF%E3%83%B3" aria-label="アンカー">#</a>
-    </span>        
-    
-</h3>
-<p><a href="https://t.me/BotFather"   target="_blank">
-    BotFather</a> からトークンを取得できます。</p>
-<p>
-
-
-
-
-  
-  
-    
-  
-  
-    <figure>
-      
-      <img
-        class="my-0 rounded-md"
-        srcset="
-        /ja/posts/reverse-proxy-telegram-alert-with-cloudflare-workers/Snipaste_2024-02-21_17-26-26_hubfe7595e0aed0af06a2707e05b76ab53_226334_330x0_resize_box_3.png 330w,
-        /ja/posts/reverse-proxy-telegram-alert-with-cloudflare-workers/Snipaste_2024-02-21_17-26-26_hubfe7595e0aed0af06a2707e05b76ab53_226334_660x0_resize_box_3.png 660w,
-        /ja/posts/reverse-proxy-telegram-alert-with-cloudflare-workers/Snipaste_2024-02-21_17-26-26_hubfe7595e0aed0af06a2707e05b76ab53_226334_1024x0_resize_box_3.png 1024w,
-        /ja/posts/reverse-proxy-telegram-alert-with-cloudflare-workers/Snipaste_2024-02-21_17-26-26_hubfe7595e0aed0af06a2707e05b76ab53_226334_1320x0_resize_box_3.png 2x"
-        src="/ja/posts/reverse-proxy-telegram-alert-with-cloudflare-workers/Snipaste_2024-02-21_17-26-26_hubfe7595e0aed0af06a2707e05b76ab53_226334_660x0_resize_box_3.png"
-        alt="スクリーンショット"
-      />
-      
-      
-    </figure>
-  
-
-</p>
-
-
-<h3 class="relative group">Cloudflare Workers 
-    <div id="cloudflare-workers" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#cloudflare-workers" aria-label="アンカー">#</a>
-    </span>        
-    
-</h3>
-<p>まず、<code>Worker</code> を作成し、次に名前と以下の <code>worker.js</code> の内容を入力します：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">whitelist</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;/botxxxxxxxxxx:&#34;</span><span class="p">];</span>
-</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">tg_host</span> <span class="o">=</span> <span class="s2">&#34;api.telegram.org&#34;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;fetch&#34;</span><span class="p">,</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">event</span><span class="p">.</span><span class="nx">respondWith</span><span class="p">(</span><span class="nx">handleRequest</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">request</span><span class="p">));</span>
-</span></span><span class="line"><span class="cl"><span class="p">});</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">validate</span><span class="p">(</span><span class="nx">path</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">whitelist</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">path</span><span class="p">.</span><span class="nx">startsWith</span><span class="p">(</span><span class="nx">whitelist</span><span class="p">[</span><span class="nx">i</span><span class="p">]))</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">}</span>
-</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kr">async</span> <span class="kd">function</span> <span class="nx">handleRequest</span><span class="p">(</span><span class="nx">request</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">u</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">URL</span><span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">url</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">u</span><span class="p">.</span><span class="nx">host</span> <span class="o">=</span> <span class="nx">tg_host</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">validate</span><span class="p">(</span><span class="nx">u</span><span class="p">.</span><span class="nx">pathname</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="k">new</span> <span class="nx">Response</span><span class="p">(</span><span class="s2">&#34;Unauthorized&#34;</span><span class="p">,</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="nx">status</span><span class="o">:</span> <span class="mi">403</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="p">});</span>
-</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">req</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Request</span><span class="p">(</span><span class="nx">u</span><span class="p">,</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">method</span><span class="o">:</span> <span class="nx">request</span><span class="p">.</span><span class="nx">method</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">headers</span><span class="o">:</span> <span class="nx">request</span><span class="p">.</span><span class="nx">headers</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">body</span><span class="o">:</span> <span class="nx">request</span><span class="p">.</span><span class="nx">body</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="p">});</span>
-</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="nx">req</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><ul>
-<li><code>&quot;/botxxxxxxxxxx:&quot;</code> をお使いの <code>Telegram Bot Token</code> の数字部分に置き換えて保存して展開してください。</li>
-<li>また、独自のドメインを設定することもできます。<code>403</code> エラーが発生した場合は、Cloudflare IP ホワイトリストを開放してみてください。</li>
+<p>docker-compose.yml:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">services</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">miniflux</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">miniflux/miniflux:latest</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;8080:8080&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">db</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">condition</span><span class="p">:</span><span class="w"> </span><span class="l">service_healthy</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">DATABASE_URL=postgres://miniflux:secret@db/miniflux?sslmode=disable</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">RUN_MIGRATIONS=1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">CREATE_ADMIN=1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">ADMIN_USERNAME=admin</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">ADMIN_PASSWORD=test123</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">db</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">postgres:15</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">POSTGRES_USER=miniflux</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">POSTGRES_PASSWORD=secret</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">POSTGRES_DB=miniflux</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">miniflux-db:/var/lib/postgresql/data</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">healthcheck</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;CMD&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;pg_isready&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;-U&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;miniflux&#34;</span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="l">10s</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">start_period</span><span class="p">:</span><span class="w"> </span><span class="l">30s</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">miniflux-db</span><span class="p">:</span><span class="w">
+</span></span></span></code></pre></div><ul>
+<li><code>DATABASE_URL</code> 用于定义数据库连接参数。</li>
+<li><code>RUN_MIGRATIONS=1</code> 自动运行 SQL 迁移。</li>
+<li><code>CREATE_ADMIN</code>、<code>ADMIN_USERNAME</code>、<code>ADMIN_PASSWORD</code> 允许我们创建第一个管理员用户，完成首次初始化后可以移除这些设置。</li>
 </ul>
 
         </div>
@@ -851,8 +783,8 @@
      
     
      <script>
-        var oid = "views_posts\\reverse-proxy-telegram-alert-with-cloudflare-workers\\index.ja.md"
-        var oid_likes = "likes_posts\\reverse-proxy-telegram-alert-with-cloudflare-workers\\index.ja.md"
+        var oid = "views_posts\\miniflux-installation-with-docker\\index.md"
+        var oid_likes = "likes_posts\\miniflux-installation-with-docker\\index.md"
       </script>
       
       
@@ -872,30 +804,30 @@
       <div class="flex justify-between pt-3">
         <span>
           
-        </span>
-        <span>
-          
-            <a class="flex text-right group ml-3" href="/ja/posts/miniflux-installation-with-docker/">
+            <a class="flex group mr-3" href="/posts/reverse-proxy-telegram-alert-with-cloudflare-workers/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Dockerを使用してMinifluxをインストールする</span
+                  >在 CloudFlare 上使用 Workers 部署 Telegram Bot 通知的反向代理</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
-                    <time datetime="2024-03-14 16:53:09 &#43;0800 CST">14 3月 2024</time>
+                    <time datetime="2024-02-21 17:00:51 &#43;0800 CST">21 February 2024</time>
                   
                 </span>
               </span>
-              <span
-                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
-                >&rarr;</span
-              >
-              <span
-                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
-                >&larr;</span
-              >
             </a>
+          
+        </span>
+        <span>
           
         </span>
       </div>
@@ -910,7 +842,7 @@
       <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
   <a href="#the-top"
     class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
-    aria-label="TOPへスクロール" title="TOPへスクロール">
+    aria-label="" title="">
     &uarr;
   </a>
 </div>
@@ -943,7 +875,7 @@
 </footer><div
   id="search-wrapper"
   class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
-  data-url="https://blog.rqqh.cn/ja/"
+  data-url="https://blog.rqqh.cn/"
   style="z-index:500"
 >
   <div
@@ -966,14 +898,14 @@
           type="search"
           id="search-query"
           class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
-          placeholder="検索"
+          placeholder=""
           tabindex="0"
         />
       </form>
       <button
         id="close-search-button"
         class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
-        title="閉じる (Esc)"
+        title=""
       >
         
 

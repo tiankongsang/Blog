@@ -7,14 +7,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     
-    <lastBuildDate>Wed, 21 Feb 2024 17:00:51 +0800</lastBuildDate><atom:link href="https://blog.rqqh.cn/ja/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 14 Mar 2024 16:53:09 +0800</lastBuildDate><atom:link href="https://blog.rqqh.cn/ja/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Dockerを使用してMinifluxをインストールする</title>
+      <link>https://blog.rqqh.cn/ja/posts/miniflux-installation-with-docker/</link>
+      <pubDate>Thu, 14 Mar 2024 16:53:09 +0800</pubDate>
+      
+      <guid>https://blog.rqqh.cn/ja/posts/miniflux-installation-with-docker/</guid>
+      <description>Docker を使用して Miniflux をインストールする</description>
+      
+    </item>
+    
     <item>
       <title>CloudFlareを使用したWorkersによるTelegram Bot通知のリバースプロキシのデプロイ</title>
       <link>https://blog.rqqh.cn/ja/posts/reverse-proxy-telegram-alert-with-cloudflare-workers/</link>
       <pubDate>Wed, 21 Feb 2024 17:00:51 +0800</pubDate>
       
       <guid>https://blog.rqqh.cn/ja/posts/reverse-proxy-telegram-alert-with-cloudflare-workers/</guid>
-      <description>準備するもの #Telegram Botのトークン Cloudflareアカウント Telegram Botのトークン #BotFather からトークンを取得できます。</description>
+      <description>準備するもの #Telegram Bot のトークン Cloudflare アカウント Telegram Bot のトークン #BotFather からトークンを取得できます。</description>
       
     </item>
     

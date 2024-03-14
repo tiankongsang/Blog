@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     
-    <lastBuildDate>Wed, 21 Feb 2024 17:00:51 +0800</lastBuildDate><atom:link href="https://blog.rqqh.cn/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 14 Mar 2024 16:53:09 +0800</lastBuildDate><atom:link href="https://blog.rqqh.cn/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用 Docker 安装 Miniflux</title>
+      <link>https://blog.rqqh.cn/posts/miniflux-installation-with-docker/</link>
+      <pubDate>Thu, 14 Mar 2024 16:53:09 +0800</pubDate>
+      
+      <guid>https://blog.rqqh.cn/posts/miniflux-installation-with-docker/</guid>
+      <description>使用 Docker 安装 Miniflux #docker-compose.</description>
+      
+    </item>
+    
     <item>
       <title>在 CloudFlare 上使用 Workers 部署 Telegram Bot 通知的反向代理</title>
       <link>https://blog.rqqh.cn/posts/reverse-proxy-telegram-alert-with-cloudflare-workers/</link>
