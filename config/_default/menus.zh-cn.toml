@@ -20,6 +20,11 @@
   pageRef = "topics"
   weight = 20
 
+[[main]]
+  name = "Docs"
+  url = "https://docs.rqqh.cn/"
+  weight = 30
+
 #[[main]]
 #  name = "Now"
 #  pageRef = "now"
@@ -33,7 +38,7 @@
 [[main]]
   identifier = "github"
   pre = "github"
-  url = "https://github.com/tiankongsang"
+  url = "https://github.com/tiankongsang/"
   weight = 50
 
 #[[footer]]

@@ -20,6 +20,11 @@
   pageRef = "topics"
   weight = 20
 
+[[main]]
+  name = "Docs"
+  url = "https://docs.rqqh.cn/"
+  weight = 30
+
 #[[main]]
 #  name = "Now"
 #  pageRef = "now"
